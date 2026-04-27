@@ -22,7 +22,7 @@
         <module>bw-im</module>
     </modules>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <spring-boot.version>3.5.13</spring-boot.version>
         <mybatis.plus.version>3.5.13</mybatis.plus.version>
         <spring-cloud.version>2025.0.1</spring-cloud.version>
