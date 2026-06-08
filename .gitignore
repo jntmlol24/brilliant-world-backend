@@ -7,6 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Maven 构建产物
+**/target/
+**/*.jar
+**/*.war
+**/*.ear
+*.jar
+
+# IDE 文件
+.idea/
+*.iml
+.vscode/
+
 node_modules
 dist
 dist-ssr

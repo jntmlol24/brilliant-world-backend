@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: bw-user
+  profiles:
+    active: dev
+  session:
+    store-type: redis
+    timeout: 2592000s
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bw_db?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  data:
+    redis:
+      database: 1
+      host: localhost
+      port: 6379
+      password: aa123123
+      connect-timeout: 5000ms
+
+server:
+  port: 8102
+  servlet:
+    context-path: /api/user
+    session:
+      cookie:
+        max-age: 2592000
+        path: /api
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+knife4j:
+  enable: true
+
+dubbo:
+  application:
+    name: bw-user-service
+    qos-enable: false
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://127.0.0.1:8848
+    parameters:
+      namespace: public
+  config-center:
+    address: nacos://127.0.0.1:8848
+  metadata-report:
+    address: nacos://127.0.0.1:8848
+  provider:
+    timeout: 30000
+    retries: 0
+  consumer:
+    check: false
+    timeout: 30000
+    retries: 0
+  scan:
+    base-packages: com.demo.bwuser.rpc

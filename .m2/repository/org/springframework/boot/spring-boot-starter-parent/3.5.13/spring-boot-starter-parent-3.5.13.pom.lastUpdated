@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Apr 26 15:02:18 CST 2026
+https\://maven.jeecg.org/nexus/content/repositories/jeecg/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:3.5.13 from/to jeecg (https\://maven.jeecg.org/nexus/content/repositories/jeecg/)\: Permission denied\: no further information
+https\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:3.5.13 from/to aliyunmaven (https\://maven.aliyun.com/nexus/content/groups/public/)\: Permission denied\: no further information
+@default-jeecg-https\://maven.jeecg.org/nexus/content/repositories/jeecg/.lastUpdated=1777186938795
+@default-aliyunmaven-https\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1777186938857

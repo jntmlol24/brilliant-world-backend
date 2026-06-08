@@ -1,0 +1,44 @@
+
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33]
+2026-04-29T16:35:58.510+08:00  INFO 36420 --- [bw-im] [nio-8104-exec-8] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENDING] userId=2047191911645224962, deviceId=device_1777355209505_08kxcmuwz, channel=62e5f7ae
+2026-04-29T16:35:58.510+08:00  INFO 36420 --- [bw-im] [nio-8104-exec-8] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENT] userId=2047191911645224962, deviceId=device_1777355209505_08kxcmuwz, channel=62e5f7ae
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33] from current transaction
+==>  Preparing: SELECT id,user_id AS userId,peer_user_id AS peerUserId,conversation_id AS conversationId,last_msg_id AS lastMsgId,last_msg_content AS lastMsgContent,last_msg_time AS lastMsgTime,unread_count AS unreadCount,last_read_msg_id AS lastReadMsgId,is_deleted AS isDeleted,create_time AS createTime,update_time AS updateTime FROM im_conversation WHERE (user_id = ? AND conversation_id = ?) limit 1
+==> Parameters: 2047194964876271617(Long), chat_2047191911645224962_2047194964876271617(String)
+<==    Columns: id, userId, peerUserId, conversationId, lastMsgId, lastMsgContent, lastMsgTime, unreadCount, lastReadMsgId, isDeleted, createTime, updateTime
+<==        Row: 3, 2047194964876271617, 2047191911645224962, chat_2047191911645224962_2047194964876271617, 2049407330873356288, 我是谁, 1777451758454, 1, 2049406506008842240, 0, 1777358495310, 1777451758454
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33]
+2026-04-29T16:35:58.519+08:00  INFO 36420 --- [bw-im] [nio-8104-exec-8] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENDING] userId=2047194964876271617, deviceId=device_1777358714466_3yid57sqw, channel=8a2f977b
+2026-04-29T16:35:58.519+08:00  INFO 36420 --- [bw-im] [nio-8104-exec-8] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENT] userId=2047194964876271617, deviceId=device_1777358714466_3yid57sqw, channel=8a2f977b
+2026-04-29T16:35:58.519+08:00  INFO 36420 --- [bw-im] [nio-8104-exec-8] c.d.b.service.impl.ImMessageServiceImpl  : [MSG-SEND-COMPLETE] msgId=2049407330873356288, sender=2047191911645224962, toUser=2047194964876271617
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fab9f33]
+2026-04-29T16:35:58.527+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-3] com.demo.bwim.handler.WebSocketHandler   : [WS-MSG-RECV] channel=62e5f7ae, type=chat
+2026-04-29T16:35:58.527+08:00  WARN 36420 --- [bw-im] [ntLoopGroup-5-3] com.demo.bwim.handler.WebSocketHandler   : [WS-MSG-RECV] channel=62e5f7ae, unknown type=chat
+2026-04-29T16:36:02.471+08:00  WARN 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.handler.WebSocketHandler   : [WS-IDLE-TIMEOUT] channel=8a2f977b, kicking out
+2026-04-29T16:36:02.471+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.support.ImSessionManager   : [WS-CLOSE] channel=8a2f977b, hasPayload=true
+2026-04-29T16:36:02.472+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] c.d.b.handler.WebSocketHandshakeHandler  : [WS-DISCONNECTED] channel=8a2f977b, remote=/127.0.0.1:59960
+2026-04-29T16:36:02.472+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.handler.WebSocketHandler   : [WS-CHANNEL-INACTIVE] channel=8a2f977b
+2026-04-29T16:36:02.473+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.support.ImSessionManager   : [SESSION-UNBIND] userId=2047194964876271617, deviceId=device_1777358714466_3yid57sqw, channel=8a2f977b, becameOffline=true
+2026-04-29T16:36:02.473+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.handler.WebSocketHandler   : [WS-CHANNEL-INACTIVE] channel=8a2f977b, userId=2047194964876271617 became offline
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78f41132] was not registered for synchronization because synchronization is not active
+JDBC Connection [HikariProxyConnection@1766872098 wrapping com.mysql.cj.jdbc.ConnectionImpl@2d7b9d20] will not be managed by Spring
+==>  Preparing: SELECT user_id AS userId FROM im_conversation WHERE (peer_user_id = ? AND is_deleted = ?)
+==> Parameters: 2047194964876271617(Long), 0(Integer)
+<==    Columns: userId
+<==        Row: 2047191911645224962
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78f41132]
+2026-04-29T16:36:02.475+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] c.d.b.service.impl.ImMessageServiceImpl  : [MSG-ONLINE-STATUS] userId=2047194964876271617, online=false, notifying 2 peers
+2026-04-29T16:36:02.476+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENDING] userId=2047191911645224962, deviceId=device_1777355209505_08kxcmuwz, channel=62e5f7ae
+2026-04-29T16:36:02.476+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-SENT] userId=2047191911645224962, deviceId=device_1777355209505_08kxcmuwz, channel=62e5f7ae
+2026-04-29T16:36:02.476+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-2] com.demo.bwim.support.ImSessionManager   : [WS-PUSH-USER] userId=2047194964876271617, no active channels, user offline
+2026-04-29T16:36:07.472+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-3] com.demo.bwim.handler.WebSocketHandler   : [WS-MSG-RECV] channel=62e5f7ae, type=heartbeat
+2026-04-29T16:36:07.854+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-4] c.demo.bwim.server.NettyWebSocketServer  : [WS-SERVER] channel pipeline initialized, channel=75af469e
+2026-04-29T16:36:07.856+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-4] c.d.b.handler.WebSocketHandshakeHandler  : [WS-HANDSHAKE] channel=75af469e, remote=/127.0.0.1:62769, token=absent, deviceId=absent
+2026-04-29T16:36:07.861+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-4] com.demo.bwim.handler.WebSocketHandler   : [WS-MSG-RECV] channel=75af469e, type=login
+2026-04-29T16:36:07.867+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-4] com.demo.bwim.handler.WebSocketHandler   : [WS-LOGIN] channel=75af469e, userId=2047194964876271617, deviceId=device_1777358714466_3yid57sqw, kickOthers=false
+2026-04-29T16:36:07.868+08:00  INFO 36420 --- [bw-im] [ntLoopGroup-5-4] com.demo.bwim.support.ImSessionManager   : [SESSION-BIND] 

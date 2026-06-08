@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: bw-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: bw-user
+              uri: lb://bw-user
+              predicates:
+                - Path=/api/user/**
+            - id: bw-post
+              uri: lb://bw-post
+              predicates:
+                - Path=/api/post/**
+            - id: bw-im-token
+              uri: lb://bw-im
+              predicates:
+                - Path=/api/im/ws/token
+            - id: bw-websocket
+              uri: lb:ws://bw-im
+              predicates:
+                - Path=/ws/**
+            - id: bw-im
+              uri: lb://bw-im
+              predicates:
+                - Path=/api/im/**
+
+server:
+  port: 8101
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    path: /doc.html
+
+knife4j:
+  enable: true
+  gateway:
+    enabled: true
+    discovery:
+      enable: true
+    routes:
+      - name: user-service
+        service-name: bw-user
+        url: /api/user/v3/api-docs
+        context-path: /api/user
+      - name: post-service
+        service-name: bw-post
+        url: /api/post/v3/api-docs
+        context-path: /api/post
+      - name: im-service
+        service-name: bw-im
+        url: /api/post/v3/api-docs
+        context-path: /api/im
+  setting:
+    language: zh_cn
